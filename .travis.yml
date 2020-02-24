@@ -10,3 +10,9 @@ after_success:
     - docker build -t ca5h/reactive-fibonacci-nginx ./nginx
     - docker build -t ca5h/reactive-fibonacci-server ./server
     - docker build -t ca5h/reactive-fibonacci-worker ./worker
+
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+docker push ca5h/reactive-fibonacci-client
+docker push ca5h/reactive-fibonacci-nginx
+docker push ca5h/reactive-fibonacci-server
+docker push ca5h/reactive-fibonacci-worker
