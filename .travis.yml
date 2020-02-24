@@ -2,7 +2,7 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -t ca5h/reactive-fibonacci -f ./client/Dockerfile.dev
+    - docker build -t ca5h/reactive-fibonacci -f ./client/Dockerfile.dev ./client
 script:
     - docker run ca5h/reactive-fibonacci npm test -- --coverage
 after_success:
