@@ -10,7 +10,6 @@ after_success:
     - docker build -t akashinnf/reactive-fibonacci-nginx ./nginx
     - docker build -t akashinnf/reactive-fibonacci-server ./server
     - docker build -t akashinnf/reactive-fibonacci-worker ./worker
-#publishing artifacts into docker hub
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     - docker push akashinnf/reactive-fibonacci-client
     - docker push akashinnf/reactive-fibonacci-nginx
