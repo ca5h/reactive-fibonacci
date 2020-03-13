@@ -2,17 +2,17 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -t ca5h/reactive-fibonacci -f ./client/Dockerfile.dev ./client
+    - docker build -t akashinnf/reactive-fibonacci -f ./client/Dockerfile.dev ./client
 script:
-    - docker run ca5h/reactive-fibonacci npm test -- --coverage
+    - docker run akashinnf/reactive-fibonacci npm test -- --coverage
 after_success:
-    - docker build -t ca5h/reactive-fibonacci-client ./client
-    - docker build -t ca5h/reactive-fibonacci-nginx ./nginx
-    - docker build -t ca5h/reactive-fibonacci-server ./server
-    - docker build -t ca5h/reactive-fibonacci-worker ./worker
+    - docker build -t akashinnf/reactive-fibonacci-client ./client
+    - docker build -t akashinnf/reactive-fibonacci-nginx ./nginx
+    - docker build -t akashinnf/reactive-fibonacci-server ./server
+    - docker build -t akashinnf/reactive-fibonacci-worker ./worker
 #publishing artifacts into docker hub
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push ca5h/reactive-fibonacci-client
-    - docker push ca5h/reactive-fibonacci-nginx
-    - docker push ca5h/reactive-fibonacci-server
-    - docker push ca5h/reactive-fibonacci-worker
+    - docker push akashinnf/reactive-fibonacci-client
+    - docker push akashinnf/reactive-fibonacci-nginx
+    - docker push akashinnf/reactive-fibonacci-server
+    - docker push akashinnf/reactive-fibonacci-worker
